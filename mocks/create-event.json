@@ -1,0 +1,8 @@
+{
+    "body": "{\"description\": \"hello world\",\"startBalance\": 100.00}",
+    "requestContext": {
+        "identity": {
+            "cognitoIdentityId": "USER-SUB-1234"
+        }
+    }
+}
