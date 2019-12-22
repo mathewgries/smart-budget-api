@@ -5,7 +5,7 @@
 #     domain api call
 # - authorizer: authenticate using the AWS IAM role
 create:
-  handler: create.main
+  handler: functions/create.main
   events:
     - http:
         path: accounts
