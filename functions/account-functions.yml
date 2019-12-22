@@ -12,3 +12,12 @@ create:
         method: post
         cors: true
         authorizer: aws_iam
+
+get:
+  handler: functions/get.main
+  events:
+    - http:
+        path: accounts/{id}
+        method: get
+        cors: true
+        authorizer: aws_iam
