@@ -32,10 +32,10 @@ list:
         authorizer: aws_iam
 
 update:
-  handler: function/update.main
+  handler: functions/update.main
   events:
     - http:
         path: accounts/{id}
-        method: put
+        method: get
         cors: true
         authorizer: aws_iam
