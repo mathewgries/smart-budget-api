@@ -39,3 +39,12 @@ update:
         method: put
         cors: true
         authorizer: aws_iam
+
+delete:
+  handler: functions/delete.main
+  events:
+    - http:
+        path: accounts/{id}
+        method: put
+        cors: true
+        authorizer: aws_iam
