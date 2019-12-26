@@ -45,6 +45,6 @@ delete:
   events:
     - http:
         path: accounts/{id}
-        method: put
+        method: delete
         cors: true
         authorizer: aws_iam
