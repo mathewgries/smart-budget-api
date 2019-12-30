@@ -11,7 +11,7 @@ export async function main(event, context) {
             accountId: uuid.v1(),
             accountName: data.accountName,
             accountDescription: data.accountDescription,
-            accountBalance: data.startBalance,
+            accountBalance: data.accountBalance,
             createdAt: Date.now()
         }
     };
