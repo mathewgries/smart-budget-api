@@ -12,14 +12,6 @@ Resources:
           AttributeType: S
         - AttributeName: transactionId
           AttributeType: S
-        - AttributeName: transactionAmount
-          AttributeType: N
-        - AttributeName: transactionDate
-          AttributeType: N
-        - AttributeName: goalAmount
-          AttributeType: N
-        - AttributeName: createDate
-          AttributeType: N
       KeySchema:
         - AttributeName: userId
           KeyType: HASH
