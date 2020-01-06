@@ -8,10 +8,57 @@ Resources:
           AttributeType: S
         - AttributeName: accountId
           AttributeType: S
+        - AttributeName: goalId
+          AttributeType: S
+        - AttributeName: transactionId
+          AttributeType: S
+        - AttributeName: transactionAmount
+          AttributeType: N
+        - AttributeName: transactionDate
+          AttributeType: N
+        - AttributeName: goalAmount
+          AttributeType: N
+        - AttributeName: createDate
+          AttributeType: N
       KeySchema:
         - AttributeName: userId
           KeyType: HASH
         - AttributeName: accountId
           KeyType: RANGE
+      LocalSecondaryIndexs:
+        - IndexName: "UsersGoals"
+          KeySchema:
+            - AttributeName: userId
+              KeyType: HASH
+            - AttributeName: goalId
+              KeyType: RANGE
+          Projections:
+            NonKeyAttributes:
+              - goalAmount
+              - createDate
+            ProjectionType: INCLUDE
+      GlobalSecondaryIndexes:
+        - IndexName: "AccountTransactions"
+          KeySchema:
+            - AttributeName: accountId
+              KeyType: HASH
+            - AttributeName: transactionId
+              KeyType: RANGE
+          Projections:
+            NonKeyAttributes:
+              - transactionAmount
+              - transactionDate
+            ProjectionType: INCLUDE
+        - IndexName: "GoalTransactions"
+          KeySchema:
+            - AttributeName: goalId
+              KeyType: HASH
+            - AttributeName: transactionId
+              KeyType: RANGE
+          Projections:
+            NonKeyAttributes:
+              - transactionAmount
+              - transactionDate
+            ProjectionType: INCLUDE
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST

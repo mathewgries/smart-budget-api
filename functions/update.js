@@ -14,7 +14,9 @@ export async function main(event, context) {
         },
         // 'UpdateExpression' defines the attributes to be updated
         // 'ExpressionAttributeValues' defines the value in the update expression
-        UpdateExpression: "SET accountName = :accountName, accountDescription = :accountDescription",
+        UpdateExpression: `SET 
+            accountName = :accountName, 
+            accountDescription = :accountDescription`,
         ExpressionAttributeValues: {
             ":accountName": data.accountName || null,
             ":accountDescription": data.accountDescription || null
