@@ -25,7 +25,7 @@ Resources:
           KeyType: HASH
         - AttributeName: accountId
           KeyType: RANGE
-      LocalSecondaryIndexs:
+      LocalSecondaryIndexes:
         - IndexName: "UsersGoals"
           KeySchema:
             - AttributeName: userId
