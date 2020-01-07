@@ -45,7 +45,10 @@ provider:
         - "Fn::GetAtt": [ AccountsTable, Arn ]
 
 functions:
-  - ${file(functions/account-functions.yml)}
+  # Account based functions
+  - ${file(functions/accounts/account-functions.yml)}
+  # Goal based functions
+  - ${file(functions/goals/goal-functions.yml)}
 
 resources:
   # API Gateway Errors
