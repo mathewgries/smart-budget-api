@@ -40,16 +40,16 @@ Resources:
               - transactionAmount
               - transactionDate
             ProjectionType: INCLUDE
-        # - IndexName: "GoalTransactions"
-        #   KeySchema:
-        #     - AttributeName: goalId
-        #       KeyType: HASH
-        #     - AttributeName: transactionId
-        #       KeyType: RANGE
-        #   Projection:
-        #     NonKeyAttributes:
-        #       - transactionAmount
-        #       - transactionDate
-        #     ProjectionType: INCLUDE
+        - IndexName: "GoalTransactions"
+          KeySchema:
+            - AttributeName: goalId
+              KeyType: HASH
+            - AttributeName: transactionId
+              KeyType: RANGE
+          Projection:
+            NonKeyAttributes:
+              - transactionAmount
+              - transactionDate
+            ProjectionType: INCLUDE
       # Set the capacity to auto-scale
       BillingMode: PAY_PER_REQUEST
