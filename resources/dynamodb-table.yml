@@ -10,8 +10,8 @@ Resources:
           AttributeType: S
         - AttributeName: goalId
           AttributeType: S
-        - AttributeName: transactionId
-          AttributeType: S
+        # - AttributeName: transactionId
+        #   AttributeType: S
       KeySchema:
         - AttributeName: userId
           KeyType: HASH
