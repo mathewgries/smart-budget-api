@@ -18,17 +18,17 @@ Resources:
         - AttributeName: accountId
           KeyType: RANGE
       GlobalSecondaryIndexes:
-        # - IndexName: "UsersGoals"
-        #   KeySchema:
-        #     - AttributeName: userId
-        #       KeyType: HASH
-        #     - AttributeName: goalId
-        #       KeyType: RANGE
-        #   Projection:
-        #     NonKeyAttributes:
-        #       - goalAmount
-        #       - createDate
-        #     ProjectionType: INCLUDE
+        - IndexName: "UsersGoals"
+          KeySchema:
+            - AttributeName: userId
+              KeyType: HASH
+            - AttributeName: goalId
+              KeyType: RANGE
+          Projection:
+            NonKeyAttributes:
+              - goalAmount
+              - createDate
+            ProjectionType: INCLUDE
         - IndexName: "AccountTransactions"
           KeySchema:
             - AttributeName: accountId
