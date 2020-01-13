@@ -2,18 +2,18 @@ import uuid from "uuid";
 import * as dynamoDbLib from '../../libs/dynamodb-lib';
 import { success, failure } from '../../libs/response-lib';
 
-function formatItem(data) {
+function formatItem(data, event) {
     switch (data.type) {
         case 'account':
-            return formatAccount(data);
+            return formatAccount(data, event);
         case 'goal':
-            return formatGoal(data);
+            return formatGoal(data, event);
         default:
             return null;
     };
 }
 
-function formatAccount(data) {
+function formatAccount(data, event) {
     return {
         userId: event.requestContext.identity.cognitoIdentityId,
         accountId: uuid.v1(),
@@ -24,7 +24,7 @@ function formatAccount(data) {
     };
 }
 
-function formatGoal(data) {
+function formatGoal(data, event) {
     return {
         userId: event.requestContext.identity.cognitoIdentityId,
         goalId: uuid.v1(),
@@ -39,7 +39,7 @@ export async function main(event, context) {
     const data = JSON.parse(event.body);
     const params = {
         TableName: process.env.tableName,
-        Item: formatItem(data)
+        Item: formatItem(data, event)
     };
 
     try {
