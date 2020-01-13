@@ -5,12 +5,12 @@ import { success, failure } from '../../libs/response-lib';
 function formatItem(data) {
     switch (data.type) {
         case 'account':
-            return formatAccount(data)
+            return formatAccount(data);
         case 'goal':
-            return formatGoal(data)
+            return formatGoal(data);
         default:
-            return null
-    }
+            return null;
+    };
 }
 
 function formatAccount(data) {
@@ -21,7 +21,7 @@ function formatAccount(data) {
         description: data.description,
         balance: data.balance,
         createdAt: Date.now()
-    }
+    };
 }
 
 function formatGoal(data) {
@@ -32,7 +32,7 @@ function formatGoal(data) {
         description: data.description,
         balance: data.balance,
         createdAt: Date.now()
-    }
+    };
 }
 
 export async function main(event, context) {
