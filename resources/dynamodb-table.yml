@@ -17,7 +17,7 @@ Resources:
           KeyType: HASH
         - AttributeName: accountId
           KeyType: RANGE
-      GlobalSecondaryIndexes:
+      LocalSecondaryIndexes:
         - IndexName: "UsersGoals"
           KeySchema:
             - AttributeName: userId
@@ -29,6 +29,7 @@ Resources:
               - goalAmount
               - createDate
             ProjectionType: INCLUDE
+      GlobalSecondaryIndexes:
         - IndexName: "AccountTransactions"
           KeySchema:
             - AttributeName: accountId
