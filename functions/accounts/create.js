@@ -10,7 +10,7 @@ function formatAccount(data, event) {
         description: data.description,
         balance: data.balance,
         createdAt: Date.now()
-    }
+    };
 }
 
 export async function main(event, context) {
