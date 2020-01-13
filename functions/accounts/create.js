@@ -3,13 +3,18 @@ import * as dynamoDbLib from '../../libs/dynamodb-lib';
 import { success, failure } from '../../libs/response-lib';
 
 function formatAccount(data, event) {
-    return {
-        userId: event.requestContext.identity.cognitoIdentityId,
-        accountId: uuid.v1(),
-        name: data.name,
-        description: data.description,
-        balance: data.balance,
-        createdAt: Date.now()
+    switch (data.type) {
+        case 'account':
+            return {
+                userId: event.requestContext.identity.cognitoIdentityId,
+                accountId: uuid.v1(),
+                name: data.name,
+                description: data.description,
+                balance: data.balance,
+                createdAt: Date.now()
+            };
+        default:
+            return null;
     };
 }
 
