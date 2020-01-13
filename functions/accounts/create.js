@@ -13,6 +13,15 @@ function formatAccount(data, event) {
                 balance: data.balance,
                 createdAt: Date.now()
             };
+        case 'goal':
+            return {
+                userId: event.requestContext.identity.cognitoIdentityId,
+                goalId: uuid.v1(),
+                name: data.name,
+                description: data.description,
+                balance: data.balance,
+                createdAt: Date.now()
+            };
         default:
             return null;
     };
