@@ -2,18 +2,44 @@ import uuid from "uuid";
 import * as dynamoDbLib from '../../libs/dynamodb-lib';
 import { success, failure } from '../../libs/response-lib';
 
+function formatItem(data) {
+    switch (data.type) {
+        case 'account':
+            return formatAccount(data)
+        case 'goal':
+            return formatGoal(data)
+        default:
+            return null
+    }
+}
+
+function formatAccount(data) {
+    return {
+        userId: event.requestContext.identity.cognitoIdentityId,
+        accountId: uuid.v1(),
+        name: data.name,
+        description: data.description,
+        balance: data.balance,
+        createdAt: Date.now()
+    }
+}
+
+function formatGoal(data) {
+    return {
+        userId: event.requestContext.identity.cognitoIdentityId,
+        goalId: uuid.v1(),
+        name: data.name,
+        description: data.description,
+        balance: data.balance,
+        createdAt: Date.now()
+    }
+}
+
 export async function main(event, context) {
     const data = JSON.parse(event.body);
     const params = {
         TableName: process.env.tableName,
-        Item: {
-            userId: event.requestContext.identity.cognitoIdentityId,
-            accountId: uuid.v1(),
-            name: data.name,
-            description: data.description,
-            balance: data.balance,
-            createdAt: Date.now()
-        }
+        Item: formatItem(data)
     };
 
     try {
