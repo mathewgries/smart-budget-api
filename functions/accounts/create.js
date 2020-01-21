@@ -7,6 +7,7 @@ function formatAccount(data, event) {
         case 'account':
             return {
                 userId: event.requestContext.identity.cognitoIdentityId,
+                type: 'account',
                 accountId: uuid.v1(),
                 name: data.name,
                 description: data.description,
@@ -16,6 +17,7 @@ function formatAccount(data, event) {
         case 'goal':
             return {
                 userId: event.requestContext.identity.cognitoIdentityId,
+                type: 'goal',
                 goalId: uuid.v1(),
                 name: data.name,
                 description: data.description,
