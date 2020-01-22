@@ -1,5 +1,5 @@
 Resources:
-  AccountsTable:
+  SmartBudgetTable:
     Type: AWS::DynamoDB::Table
     Properties:
       TableName: ${self:custom.tableName}

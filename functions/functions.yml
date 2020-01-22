@@ -5,46 +5,46 @@
 #     domain api call
 # - authorizer: authenticate using the AWS IAM role
 create:
-  handler: functions/accounts/create.main
+  handler: functions/create.main
   events:
     - http:
-        path: accounts
+        path: smart_budget
         method: post
         cors: true
         authorizer: aws_iam
 
 get:
-  handler: functions/accounts/get.main
+  handler: functions/get.main
   events:
     - http:
-        path: accounts/{id}
+        path: smart_budget/{id}
         method: get
         cors: true
         authorizer: aws_iam
 
 list:
-  handler: functions/accounts/list.main
+  handler: functions/list.main
   events:
     - http:
-        path: accounts
+        path: smart_budget
         method: get
         cors: true
         authorizer: aws_iam
 
 update:
-  handler: functions/accounts/update.main
+  handler: functions/update.main
   events:
     - http:
-        path: accounts/{id}
+        path: smart_budget/{id}
         method: put
         cors: true
         authorizer: aws_iam
 
 delete:
-  handler: functions/accounts/delete.main
+  handler: functions/delete.main
   events:
     - http:
-        path: accounts/{id}
+        path: smart_budget/{id}
         method: delete
         cors: true
         authorizer: aws_iam
