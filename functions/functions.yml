@@ -8,7 +8,7 @@ create:
   handler: functions/create.main
   events:
     - http:
-        path: smart_budget
+        path: smart-budget
         method: post
         cors: true
         authorizer: aws_iam
@@ -17,7 +17,7 @@ get:
   handler: functions/get.main
   events:
     - http:
-        path: smart_budget/{id}
+        path: smart-budget/{id}
         method: get
         cors: true
         authorizer: aws_iam
@@ -26,7 +26,7 @@ list:
   handler: functions/list.main
   events:
     - http:
-        path: smart_budget
+        path: smart-budget
         method: get
         cors: true
         authorizer: aws_iam
@@ -35,7 +35,7 @@ update:
   handler: functions/update.main
   events:
     - http:
-        path: smart_budget/{id}
+        path: smart-budget/{id}
         method: put
         cors: true
         authorizer: aws_iam
@@ -44,7 +44,7 @@ delete:
   handler: functions/delete.main
   events:
     - http:
-        path: smart_budget/{id}
+        path: smart-budget/{id}
         method: delete
         cors: true
         authorizer: aws_iam
