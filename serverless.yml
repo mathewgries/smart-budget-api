@@ -46,7 +46,7 @@ provider:
 
 #functions:
   # Account based functions
-  #- ${file(functions/functions.yml)}
+  - ${file(functions/functions.yml)}
 
 resources:
   # API Gateway Errors
