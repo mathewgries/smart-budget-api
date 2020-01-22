@@ -44,7 +44,7 @@ provider:
   #     Resource:
   #       - "Fn::GetAtt": [ AccountsTable, Arn ]
 
-#functions:
+functions:
   # Account based functions
   - ${file(functions/functions.yml)}
 
