@@ -21,6 +21,7 @@ function formatAccount(data, event) {
                 goalId: uuid.v1(),
                 name: data.name,
                 description: data.description,
+                goalAmount: data.goalAmount,
                 balance: data.balance,
                 createdAt: Date.now()
             };
